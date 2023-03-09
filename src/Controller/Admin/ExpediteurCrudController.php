@@ -151,11 +151,11 @@ class ExpediteurCrudController extends AbstractCrudController
             DateField::new('dateDeVoyageSouhaiter'),
             IntegerField::new('nombreKilogramme'),
             MoneyField::new('prixEnvoie')->setCurrency('EUR'),
+            AssociationField::new('transporteurDuColis'),
             TextField::new('email')->onlyOnDetail(),
             TextField::new('numero')->onlyOnDetail(),
             TextField::new('numeroCarteIdentite'),
             TextEditorField::new('descriptionColis')->onlyOnDetail(),
-            AssociationField::new('transporteurDuColis'),
             TextEditorField::new('notification'),
             BooleanField::new('status')
 

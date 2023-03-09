@@ -32,7 +32,7 @@ class ExpediteurController extends AbstractController
             $expediteur->setEtat(0);
             $this->entityManager->persist($expediteur);
             $this->entityManager->flush();
-            $notification = "Merci !!! Votre demande a bien été prise en compte, Vous serais contacté, pour finaliser la porcedure";
+            $notification = "Votre demande a bien été enregistrée";
 
 
         }

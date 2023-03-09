@@ -32,7 +32,7 @@ class AchatController extends AbstractController
 
             $this->entityManager->persist($achat);
             $this->entityManager->flush();
-            $notification = "Merci !!! Votre demande a bien été prise en compte, Vous serais contacté, pour finaliser la porcedure";
+            $notification = "Votre demande a bien été enregistrée";
 
         }
 

@@ -49,7 +49,7 @@ class RegisterController extends AbstractController
                 $content = "Bonjour".$user->getLastname()."Bienvenue chez COPAVIA votre inscription a bien été prise en compte.";
                 $email->send($user->getEmail(),$user->getLastname(),'Bienvenue chez COPAVIA',$content);
 
-                $notification = "Merci !!! Votre demande a bien été prise en compte, Vous pouvez maintenant vous connectez pour la suite";
+                $notification = "Votre demande a bien été enregistrée, Vous pouvez maintenant vous connectez pour la suite";
             }else{
                 $notification = "Cette adresse mail est deja utilisée, si vous avez un compte veuillier vous connecter";
             }

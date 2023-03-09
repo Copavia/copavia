@@ -33,7 +33,7 @@ class ContactController extends AbstractController
 
             $this->entityManager->persist($contact);
             $this->entityManager->flush();
-            $notification = "Merci !!! Votre demande a bien été prise en compte, Vous serais contacté, très vite";
+            $notification = "Votre demande a bien été enregistrée";
 
         }
 
