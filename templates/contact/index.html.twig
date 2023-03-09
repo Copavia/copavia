@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}COPAVIA{% endblock %}
+
+{% block body %}
+    <main>
+        <!-- section -->
+
+        <section class="my-lg-14 my-8">
+            <!-- container -->
+            <div class="container">
+                <div class="row">
+                    <!-- col -->
+                    <div class="offset-lg-2 col-lg-8 col-12">
+                        <div class="mb-8">
+
+                            <!-- heading -->
+                            <section class="mt-8">
+                                <!-- contianer -->
+                                <div class="container">
+                                    <h1 style="color: black; font-family: Bodoni MT; font-weight: bold">Nous contacter</h1><br>
+                                    <div class="row">
+                                        <!-- col -->
+                                        <div class="col-12">
+                                            <!-- cta -->
+                                            <div class="bg-light d-lg-flex justify-content-between align-items-center py-6 py-lg-3 px-8 rounded-3 text-center text-lg-start">
+                                                <!-- text -->
+
+                                                <div class="ms-lg-4">
+                                                    <h3 style="font-family: Bodoni MT">Une question ? N’hésitez pas à nous écrire.</h3><br>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </section> <br><br>
+                        </div>
+                        <!-- form -->
+                        {{ form_start(form) }}
+                        {% if notification %}
+                            <div class="alert alert-info" style="color: #070000 ; font-size: 26px ; font-family: Bodoni MT">{{ notification }}</div>
+                        {% endif %}
+                        <div class="row g-3">
+                            <!-- col -->
+                            <div class="col-md-6 mb-3" style="font-family: Bodoni MT; color: black; font-size: 20px">
+                                {{ form_label(form.prenom) }}
+                                {{ form_widget(form.prenom , {'attr':{'class':'form-control'}}) }}
+                                {{ form_errors(form.prenom) }}
+                            </div>
+                            <div class="col-md-6 mb-3" style="font-family: Bodoni MT; color: black; font-size: 20px">
+                                {{ form_label(form.nom) }}
+                                {{ form_widget(form.nom , {'attr':{'class':'form-control'}}) }}
+                                {{ form_errors(form.nom) }}
+                            </div>
+                            <div class="col-md-6 mb-3" style="font-family: Bodoni MT; color: black; font-size: 20px">
+                                {{ form_label(form.objetContact) }}
+                                {{ form_widget(form.objetContact, {'attr':{'class':'form-control'}}) }}
+                                {{ form_errors(form.objetContact) }}
+                            </div>
+
+                            <div class="col-md-6 mb-3" style="font-family: Bodoni MT; color: black; font-size: 20px">
+                                {{ form_label(form.numero) }}
+                                {{ form_widget(form.numero , {'attr':{'class':'form-control'}}) }}
+                                {{ form_errors(form.numero) }}
+                            </div>
+                            <div class="col-md-12 mb-3" style="font-family: Bodoni MT; color: black; font-size: 20px">
+                                {{ form_label(form.email) }}
+                                {{ form_widget(form.email, {'attr':{'class':'form-control'}}) }}
+                                {{ form_errors(form.email) }}
+                            </div>
+                            <div class="col-md-6 mb-3" style="font-family: Bodoni MT; color: black; font-size: 20px">
+                                {{ form_label(form.commentaires) }}
+                                {{ form_widget(form.commentaires, {'attr':{'class':'form-control'}}) }}
+                                {{ form_errors(form.commentaires) }}
+                            </div>
+
+
+                            <div class="col-12 d-grid" style="font-family: Bodoni MT">
+                                {{ form_widget(form.Submit, {'attr' : { 'class' : 'btn btn-primary' , 'style' : 'background : black ; font-size: 25px'} }) }}
+                            </div>
+                        </div>
+
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+{% endblock %}

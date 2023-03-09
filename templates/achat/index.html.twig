@@ -1,0 +1,118 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}COPAVIA{% endblock %}
+
+{% block body %}
+    <main>
+        <!-- section -->
+
+        <section class="my-lg-14 my-8">
+            <!-- container -->
+            <div class="container">
+                <div class="row">
+                    <!-- col -->
+                    <div class="offset-lg-2 col-lg-8 col-12">
+                        <div class="mb-8">
+
+                            <!-- heading -->
+                            <section class="mt-8">
+                                <!-- contianer -->
+                                <div class="container">
+                                    <h1 style="color: #cb6ce6; font-family: Bodoni MT; font-weight: bold">J'achète</h1><br>
+                                    <div class="row">
+                                        <!-- col -->
+                                        <div class="col-12">
+                                            <!-- cta -->
+                                            <div class="bg-light d-lg-flex justify-content-between align-items-center py-6 py-lg-3 px-8 rounded-3 text-center text-lg-start">
+                                                <!-- text -->
+
+                                                <div class="ms-lg-4">
+                                                    <h3 style="font-family: Bodoni MT">Dites-nous-en, un peu plus sur votre produit. <br><br>
+                                                        Nous vous contacterons dans les plus brefs délais.</h3><br>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </section> <br><br>
+                        </div>
+                        <!-- form -->
+                        {% if notification %}
+                            <div class="alert alert-info" style="color: #070000 ; font-size: 26px ;  font-family: Bodoni MT">{{ notification }}</div>
+                        {% endif %}
+                        {{ form_start(form) }}
+                        <div class="row g-3">
+                            <!-- col -->
+                            <div class="col-md-6 mb-3" style="font-family: Bodoni MT; color: black; font-size: 25px">
+                                {{ form_label(form.prenom) }}
+                                {{ form_widget(form.prenom , {'attr':{'class':'form-control'}}) }}
+                                {{ form_errors(form.prenom) }}
+                            </div>
+
+                            <div class="col-md-6 mb-3" style="font-family: Bodoni MT; color: black; font-size: 25px">
+                                {{ form_label(form.nom) }}
+                                {{ form_widget(form.nom , {'attr':{'class':'form-control'}}) }}
+                                {{ form_errors(form.nom) }}
+                            </div>
+
+                            <div class="col-md-6 mb-3" style="font-family: Bodoni MT; color: black; font-size: 25px">
+                                {{ form_label(form.produit) }}
+                                {{ form_widget(form.produit, {'attr':{'class':'form-control'}}) }}
+                                {{ form_errors(form.produit) }}
+                            </div>
+
+                            <div class="col-md-6 mb-3" style="font-family: Bodoni MT; color: black; font-size: 25px">
+                                {{ form_label(form.referenceProduit) }}
+                                {{ form_widget(form.referenceProduit, {'attr':{'class':'form-control'}}) }}
+                                {{ form_errors(form.referenceProduit) }}
+                            </div>
+
+                            <div class="col-md-12 mb-3" style="font-family: Bodoni MT; color: black; font-size: 25px">
+                                {{ form_label(form.lienDuProduit) }}
+                                {{ form_widget(form.lienDuProduit, {'attr':{'class':'form-control'}}) }}
+                                {{ form_errors(form.lienDuProduit) }}
+
+                            </div>
+
+                            <div class="col-md-6 mb-3" style="font-family: Bodoni MT; color: black; font-size: 25px">
+                                {{ form_label(form.prixProduit) }}
+                                {{ form_widget(form.prixProduit, {'attr':{'class':'form-control'}}) }}
+                                {{ form_errors(form.prixProduit) }}
+
+                            </div>
+
+                            <div class="col-md-6 mb-3" style="font-family: Bodoni MT; color: black; font-size: 25px">
+                                {{ form_label(form.paysDeDestination) }}
+                                {{ form_widget(form.paysDeDestination, {'attr':{'class':'form-control'}}) }}
+                                {{ form_errors(form.paysDeDestination) }}
+                            </div>
+
+                            <div class="col-md-6 mb-3" style="font-family: Bodoni MT; color: black; font-size: 25px">
+                                {{ form_label(form.numero) }}
+                                {{ form_widget(form.numero , {'attr':{'class':'form-control'}}) }}
+                                {{ form_errors(form.numero) }}
+                            </div>
+
+                            <div class="col-md-12 mb-3" style="font-family: Bodoni MT; color: black; font-size: 25px">
+                                {{ form_label(form.email) }}
+                                {{ form_widget(form.email, {'attr':{'class':'form-control'}}) }}
+                                {{ form_errors(form.email) }}
+                            </div>
+
+                            <div class="col-12 d-grid"style="font-family: Bodoni MT">
+                                {{ form_widget(form.Submit, {'attr' : { 'class' : 'btn btn-primary' , 'style' : 'background : #cb6ce6 ; font-size: 25px'} }) }}
+                            </div>
+                        </div>
+
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+{% endblock %}

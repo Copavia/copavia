@@ -1,0 +1,111 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}COPAVIA{% endblock %}
+
+{% block body %}
+    <!-- section -->
+
+    <section class="mt-8">
+        <!-- contianer -->
+        <div class="container">
+            <div class="row">
+                <!-- col -->
+                <div class="col-12">
+                    <!-- cta -->
+                    {% if app.user %}
+                        <div class="bg-light d-lg-flex justify-content-between align-items-center py-6 py-lg-3 px-8 rounded-3 text-center text-lg-start">
+                            <!-- img -->
+                            <div class="d-lg-flex align-items-center">
+                                <img src="../assets/images/about/relais.png" alt="" class="img-fluid">
+                                <!-- text -->
+
+                                <div class="ms-lg-4">
+                                    <h1 class="fs-2 mb-1"style="font-size: 20px; font-family: Bodoni MT">Bienvenue {{ app.user.firstname}} , COPAVIA le garant de vos attaches </h1>
+                                </div>
+
+                            </div>
+                        </div>
+                    {% else %}
+                        <div  class="bg-light d-lg-flex justify-content-between align-items-center py-6 py-lg-3 px-8 rounded-3 text-center text-lg-start">
+                            <!-- img -->
+                            <div class="d-lg-flex align-items-center">
+                                <img src="../assets/images/about/relais.png" alt="" class="img-fluid">
+                                <!-- text -->
+                                <div class="ms-lg-4">
+                                    <h1 class="fs-2 mb-1"style="font-size: 20px; font-family: Bodoni MT">Bienvenue</h1>
+                                    <span class="span1"style="font-size: 20px; font-family: Bodoni MT">COPAVIA, le garant de vos attaches</span>
+
+                                </div>
+
+                            </div>
+                            <div class="mt-3 mt-lg-0">
+                                <!-- btn -->
+                                <a href="register" class="btn btn-dark"style="font-size: 20px; font-family: Bodoni MT">Je m'inscris</a>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- section -->
+    <section class="mt-8">
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="p-8 rounded-3 mb-3" style="background-color: #ff914d">
+                        <div>
+                            <h3 class="mb-0 fw-bold" style="font-weight: bold ; font-family: Bodoni MT">Un voyage de prévu ?</h3>
+                            <div class="mt-4 mb-5 fs-5">
+                                <span class="fw-bold text-dark" style="font-size: 20px ; font-family: Bodoni MT"><br>Contactez-nous et rentabilisez votre billet.<br><hr></span>
+                            </div>
+                            <a href="voyageur" class="btn btn-dark" style="font-size: 20px ; font-family: Bodoni MT">Je voyage</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4 col-md-6  col-12">
+                    <div class="p-8 rounded-3 mb-3" style="background-color: #36b6ff">
+
+                        <!-- Banner Content -->
+                        <div>
+                            <!-- Banner Content -->
+                            <h3 class=" fw-bold mb-3"style="font-weight: bold ; font-family: Bodoni MT">Un colis à envoyer ?</h3>
+                            <div class="mt-4 mb-5 fs-5">
+                                <span class="fw-bold text-dark" style="font-size: 20px ; font-family: Bodoni MT"><br>Dites-nous où et c’est comme si c’était déjà fait.<br><hr></span>
+                            </div>
+
+
+                            <a href="expediteur" class="btn btn-dark"style="font-size: 20px ; font-family: Bodoni MT">J'envoie</a>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-lg-4 col-12 d-block d-md-none d-lg-block">
+                    <div class="p-8 rounded-3 mb-3" style="background-color: #cb6ce6">
+
+
+                        <div>
+                            <!-- Banner Content -->
+                            <h3 class=" fw-bold mb-3"style="font-weight: bold ; font-family: Bodoni MT">Un produit à l’étranger vous intéresse ?</h3>
+                            <div class="mt-4 mb-5 fs-5">
+                                <span class="fw-bold text-dark" style="font-size: 20px; font-family: Bodoni MT">Dites-nous ce qui vous ferez plaisir et vous le recevrez « illico presto». <hr></span>
+                            </div>
+
+
+                            <a href="achat" class="btn btn-dark"style="font-size: 20px; font-family: Bodoni MT">J'achète</a>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
