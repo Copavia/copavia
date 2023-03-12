@@ -6,8 +6,8 @@ use Mailjet\Resources;
 
 class Mail
 {
-    private $api_key = '1b9740525ae989e81066da53a3faa3c4';
-    private $api_key_secret = 'ae6f66516c5a1af7a9991856bfc5328c';
+    private $api_key = '2007d67aa577c947258bebb29b00555d';
+    private $api_key_secret = '8e8d75af82e4654f2e31aa1ac9d6ab9b';
 
     public function send($to_email, $to_name, $subject, $content)
     {
@@ -16,7 +16,7 @@ class Mail
             'Messages' => [
                 [
                     'From' => [
-                        'Email' => "arnaudgif@outlook.fr",
+                        'Email' => "support@copavia.fr",
                         'Name' => "Copavia"
                     ],
                     'To' => [
@@ -25,7 +25,7 @@ class Mail
                             'Name' => $to_name
                         ]
                     ],
-                    'TemplateID' => 4641392,
+                    'TemplateID' => 4648669,
                     'TemplateLanguage' => true,
                     'Subject' => $subject,
                     'Variables' => [
@@ -36,6 +36,5 @@ class Mail
             ]
         ];
         $response = $mj->post(Resources::$Email, ['body' => $body]);
-        $response->success() && dd($response->getData());
     }
 }
