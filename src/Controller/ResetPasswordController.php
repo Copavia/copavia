@@ -48,7 +48,7 @@ class ResetPasswordController extends AbstractController
                 $this->entityManager->flush();
 
                 //2 : Envoyer un email a l'utilisateur avec un lien lui permettant de modifier son mot de passe
-                $url = $this->generateUrl('update_password', ['token' => $reset_password->getToken()],UrlGeneratorInterface::ABSOLUTE_URL);
+                $url = $this->generateUrl("update", ['token' => $reset_password->getToken()],UrlGeneratorInterface::ABSOLUTE_URL);
 
                 $content = "Bonjour ".$user->getLastname()." <br/>Vous avez demandé à réinitilaiser votre mot de passe COPAVIA.<br/><br/>";
                 $content .= "Merci de bien vouloir cliquer sur le lien suivant pour <a href=".$url."'>mettre a jour votre mot de passe</a>.";
@@ -66,7 +66,7 @@ class ResetPasswordController extends AbstractController
 
 
     /**
-     * @Route("/modifier-mon-mot-de-passe/{token}", name="update_password")
+     * @Route("/modifier-mon-mot-de-passe/{token}", name="update")
      */
     public function update (Request $request , $token , UserPasswordEncoderInterface $encoder)
     {
