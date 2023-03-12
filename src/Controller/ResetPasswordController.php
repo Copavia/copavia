@@ -12,6 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class ResetPasswordController extends AbstractController
@@ -47,12 +48,10 @@ class ResetPasswordController extends AbstractController
                 $this->entityManager->flush();
 
                 //2 : Envoyer un email a l'utilisateur avec un lien lui permettant de modifier son mot de passe
-                $url = $this->generateUrl('update_password', [
-                    'token' => $reset_password->getToken()
-                ]);
+                $url = $this->generateUrl('update_password', ['token' => $reset_password->getToken()],UrlGeneratorInterface::ABSOLUTE_URL);
 
                 $content = "Bonjour ".$user->getLastname()." <br/>Vous avez demandé à réinitilaiser votre mot de passe COPAVIA.<br/><br/>";
-                $content .= "Merci de bien vouloir cliquer sur le lien suivant pour <a href='copavia.fr/".$url."'>mettre a jour votre mot de passe</a>.";
+                $content .= "Merci de bien vouloir cliquer sur le lien suivant pour <a href=".$url."'>mettre a jour votre mot de passe</a>.";
 
                 $email = new Mail();
                 $email->send($user->getEmail(),$user->getLastname(),'Réinitialiser votre mot de passe sur COPAVIA ',$content);
