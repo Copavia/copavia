@@ -51,8 +51,8 @@ class ResetPasswordController extends AbstractController
                     'token' => $reset_password->getToken()
                 ]);
 
-                $content = "Bonjour ".$user->getLastname()." <br> Vous avez demandé à réinitilaiser votre mot de passe COPAVIA.<br><br>";
-                $content .= "Merci de bien vouloir cliquer sur le lien suivant pour <a href='".$url."'>mettre a jour votre mot de passe</a>.";
+                $content = "Bonjour ".$user->getLastname()." <br/>Vous avez demandé à réinitilaiser votre mot de passe COPAVIA.<br/><br/>";
+                $content .= "Merci de bien vouloir cliquer sur le lien suivant pour <a href='copavia.fr/".$url."'>mettre a jour votre mot de passe</a>.";
 
                 $email = new Mail();
                 $email->send($user->getEmail(),$user->getLastname(),'Réinitialiser votre mot de passe sur COPAVIA ',$content);
