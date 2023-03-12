@@ -46,7 +46,7 @@ class RegisterController extends AbstractController
                 $this->entityManager->flush();
 
                 $email = new Mail();
-                $content = "Bonjour".$user->getLastname()."Bienvenue chez COPAVIA votre inscription a bien été prise en compte.";
+                $content = "Bonjour ".$user->getLastname()." Bienvenue chez COPAVIA votre inscription a bien été prise en compte.";
                 $email->send($user->getEmail(),$user->getLastname(),'Bienvenue chez COPAVIA',$content);
 
                 $notification = "Votre demande a bien été enregistrée, Vous pouvez maintenant vous connectez pour la suite";
