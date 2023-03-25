@@ -50,11 +50,11 @@ class ResetPasswordController extends AbstractController
                 //2 : Envoyer un email a l'utilisateur avec un lien lui permettant de modifier son mot de passe
                 $url = $this->generateUrl('update_password', ['token' => $reset_password->getToken()],UrlGeneratorInterface::ABSOLUTE_URL);
 
-                $content = "Bonjour ".$user->getLastname()." <br/>Vous avez demandé à réinitilaiser votre mot de passe COPAVIA.<br/><br/>";
-                $content .= "Merci de bien vouloir cliquer sur le lien suivant pour <a href=".$url.">mettre a jour votre mot de passe</a>.";
+                $content = "Bonjour ".$user->getLastname()." <br/>Votre demande de réinitialisation à bien été pris en compte.<br/><br/>";
+                $content .= "Veuillez cliquer ici pour <a href=".$url.">définir un mot de passe.<br/><br/> À très bientôt sur COPAVIA</a>.";
 
                 $email = new Mail();
-                $email->send($user->getEmail(),$user->getLastname(),'Réinitialiser votre mot de passe sur COPAVIA ',$content);
+                $email->send($user->getEmail(),$user->getLastname(),'Réinitialisation de votre mot de passe COPAVIA ',$content);
                 $this->addFlash('notice', 'Vous allez recevoir dans quelques secondes un mail avec un lien pour réinitialiser votre mot de passe');
 
             } else {

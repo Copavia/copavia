@@ -72,6 +72,11 @@ class Achat
      */
     private $notification;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $etat;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -205,6 +210,18 @@ class Achat
     public function setNotification(?string $notification): self
     {
         $this->notification = $notification;
+
+        return $this;
+    }
+
+    public function getEtat(): ?int
+    {
+        return $this->etat;
+    }
+
+    public function setEtat(?int $etat): self
+    {
+        $this->etat = $etat;
 
         return $this;
     }
