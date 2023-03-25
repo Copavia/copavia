@@ -31,24 +31,11 @@ class ExpediteurController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid())
         {
-            $user = $form->getData();
-
-            $search_email = $this->entityManager->getRepository(User::class)->findOneByEmail($user->getEmail());
-
-            if(!$search_email){
 
                 $expediteur->setEtat(0);
-            $this->entityManager->persist($expediteur);
-            $this->entityManager->flush();
+                $this->entityManager->persist($expediteur);
+                $this->entityManager->flush();
 
-            $email = new Mail();
-            $content = "Bonjour ".$user->getLastname().", <br/><br/>Votre envoie a bien été pris en compte Un conseiller vous contactera dans les plus bref délais.<br/><br/> À très bientôt sur COPAVIA.";
-            $email->send($user->getEmail(),$user->getLastname(),'Envoie enregistré',$content);
-
-            $notification = "Votre demande a bien été enregistrée,";
-        }else{
-            $notification = "Un Problème c'est produit veuillez ressayer ";
-        }
 
     }
         return $this->render('expediteur/index.html.twig', [
