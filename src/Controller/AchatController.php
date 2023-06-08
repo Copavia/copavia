@@ -34,6 +34,7 @@ class AchatController extends AbstractController
 
                 $this->entityManager->persist($achat);
                 $this->entityManager->flush();
+                $notification="Votre demande a bien été prise en compte. Nous vous contacterons très bientôt. Merci de votre confiance";
 
 
         }

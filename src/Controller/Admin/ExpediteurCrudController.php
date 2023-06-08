@@ -65,7 +65,7 @@ class ExpediteurCrudController extends AbstractCrudController
             ->setAction('index')
             ->generateUrl();
         $email = new Mail();
-        $content = "Bonjour ".$expediteur->getNom()." COPAVIA viens de prendre en charge votre envoie, vous serais informé lorsque votre colis sera expedié.";
+        $content = "Mr/Mme ".$expediteur->getNom()." Votre colis a bien été pris en charge. Il sera envoyé très prochainement. Merci de votre confiance";
         $email->send($expediteur->getEmail(),$expediteur->getNom(),'Colis pris en charge',$content);
 
         return $this->redirect($url);
@@ -86,7 +86,7 @@ class ExpediteurCrudController extends AbstractCrudController
             ->generateUrl();
 
         $email = new Mail();
-        $content = "Bonjour ".$expediteur->getNom()." Votre colis vien d'être expedié il est en transite vous recevrais un mail lorsqu'il seras prêt à être rétiré.";
+        $content = "Mr/Mme ".$expediteur->getNom()." Votre colis est en transit. Il sera bientôt disponible pour le retrait. Merci de votre confiance.";
         $email->send($expediteur->getEmail(),$expediteur->getNom(),'Colis envoyé',$content);
 
         return $this->redirect($url);
@@ -107,7 +107,7 @@ class ExpediteurCrudController extends AbstractCrudController
             ->generateUrl();
 
         $email = new Mail();
-        $content = "Bonjour ".$expediteur->getNom()." Votre colis est prêt à être rétiré.";
+        $content = "Mr/Mme ".$expediteur->getNom()." Votre colis est arrivé à sa destination. Vous pouvez dès à présent le retirer avec votre code retrait et une pièce d’identité. Merci de votre confiance.";
         $email->send($expediteur->getEmail(),$expediteur->getNom(),'Colis en point relais',$content);
 
         return $this->redirect($url);
@@ -128,7 +128,7 @@ class ExpediteurCrudController extends AbstractCrudController
             ->generateUrl();
 
         $email = new Mail();
-        $content = "Bonjour ".$expediteur->getNom()." Votre colis vien d'être rétiré par votre destinateur. Merci d'avoir choisie COPAVIA et à bientôt.";
+        $content = "Mr/Mme ".$expediteur->getNom()." Votre colis à bien été retiré. Garant de vos attaches, COPAVIA a été ravi de vous servir. Merci et à bientôt";
         $email->send($expediteur->getEmail(),$expediteur->getNom(),'Colis rétiré',$content);
 
         return $this->redirect($url);

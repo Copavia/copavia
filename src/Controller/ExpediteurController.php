@@ -31,13 +31,12 @@ class ExpediteurController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid())
         {
-
                 $expediteur->setEtat(0);
                 $this->entityManager->persist($expediteur);
                 $this->entityManager->flush();
+                $notification="Votre demande a bien été prise en compte. Nous vous contacterons très bientôt . Merci de votre confiance";
 
-
-    }
+        }
         return $this->render('expediteur/index.html.twig', [
             'form'=>$form->createView(),
             'notification' => $notification
