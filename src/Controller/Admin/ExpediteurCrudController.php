@@ -39,10 +39,10 @@ class ExpediteurCrudController extends AbstractCrudController
 
     public function configureActions(Actions $actions): Actions
     {
-        $updateExpediteur = Action::new('updateExpediteur','Envoie pris en charge','fas fa-box-open')->linkToCrudAction('updateExpediteur');
+        $updateExpediteur = Action::new('updateExpediteur','Prise en charge','fas fa-box-open')->linkToCrudAction('updateExpediteur');
         $updateTransit = Action::new('updateTransit','En Transit','fas fa-truck')->linkToCrudAction('updateTransit');
-        $updateRelais = Action::new('updateRelais','Reçu au relais','fas fa-dolly')->linkToCrudAction('updateRelais');
-        $updateRetrait = Action::new('updateRetrait','Colis retiré','fas fa-solid fa-user-check')->linkToCrudAction('updateRetrait');
+        $updateRelais = Action::new('updateRelais','Au retrait','fas fa-dolly')->linkToCrudAction('updateRelais');
+        $updateRetrait = Action::new('updateRetrait','Livré','fas fa-solid fa-user-check')->linkToCrudAction('updateRetrait');
         return $actions
             ->add('detail',$updateExpediteur)
             ->add('detail',$updateTransit)
@@ -66,7 +66,7 @@ class ExpediteurCrudController extends AbstractCrudController
             ->generateUrl();
         $email = new Mail();
         $content = "Mr/Mme ".$expediteur->getNom()." Votre colis a bien été pris en charge. Il sera envoyé très prochainement. Merci de votre confiance";
-        $email->send($expediteur->getEmail(),$expediteur->getNom(),'Colis pris en charge',$content);
+        $email->send($expediteur->getEmail(),$expediteur->getNom(),'Prise en charge',$content);
 
         return $this->redirect($url);
     }
@@ -108,7 +108,7 @@ class ExpediteurCrudController extends AbstractCrudController
 
         $email = new Mail();
         $content = "Mr/Mme ".$expediteur->getNom()." Votre colis est arrivé à sa destination. Vous pouvez dès à présent le retirer avec votre code retrait et une pièce d’identité. Merci de votre confiance.";
-        $email->send($expediteur->getEmail(),$expediteur->getNom(),'Colis en point relais',$content);
+        $email->send($expediteur->getEmail(),$expediteur->getNom(),'Au retrait',$content);
 
         return $this->redirect($url);
     }
@@ -129,7 +129,7 @@ class ExpediteurCrudController extends AbstractCrudController
 
         $email = new Mail();
         $content = "Mr/Mme ".$expediteur->getNom()." Votre colis à bien été retiré. Garant de vos attaches, COPAVIA a été ravi de vous servir. Merci et à bientôt";
-        $email->send($expediteur->getEmail(),$expediteur->getNom(),'Colis rétiré',$content);
+        $email->send($expediteur->getEmail(),$expediteur->getNom(),'Livré',$content);
 
         return $this->redirect($url);
     }
